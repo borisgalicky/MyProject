@@ -7,7 +7,7 @@ let db = mysql.createConnection({
     database: "myproject"
   });
 
-  db.connect((err,) => {
+  db.connect((err) => {
     if (err){
       throw err;
       console.log("There was a problem with MySQL!");
@@ -16,10 +16,10 @@ let db = mysql.createConnection({
     }
   });  
 
-  var rename = "update Customers set FirstName = 'Boris' where id='1';";
+  /*var rename = "update Customers set FirstName = 'Boris' where id='1';";
   db.query(rename, (err)=>{
     if(err) return(err);
     else console.log("Successfully done!");
-  });
+  });*/
 
   module.exports = db;

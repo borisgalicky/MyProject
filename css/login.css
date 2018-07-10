@@ -1,0 +1,9 @@
+body{
+    font-family: Arial;
+}
+#usrn_err,#pssw_err{
+    height: 13px;
+    width: 100px;
+    color: red;
+    font-size:13px;
+}

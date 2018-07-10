@@ -1,0 +1,9 @@
+body{
+    font-family: Arial;
+}
+#fn_err,#ln_err,#mail_err,#username_err,#password_err{
+    height: 13px;
+    width: 80px;
+    color: red;
+    font-size:13px;
+}
