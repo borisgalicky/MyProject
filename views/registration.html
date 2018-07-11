@@ -8,12 +8,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../js/registration.js" type="text/javascript"></script>
 <body>
+<form action="/register" method="POST" onsubmit="return register();">
     <table>
         <tr>
             <td><label id="fn_label"><b>First Name</b></label></td></label>
         </tr>
         <tr>
-            <td><input type="text" id="fn_input"></td>
+            <td><input type="text" id="fn_input" name="fn_input"></td>
         </tr>
         <tr>
             <td><div id="fn_err"></div></td>
@@ -22,7 +23,7 @@
             <td><label id="ln_label"><b>Last Name</b></label></td>
         </tr>
         <tr>
-            <td><input type="text" id="ln_input"></td>
+            <td><input type="text" id="ln_input" name="ln_input"></td>
         </tr>
         <tr>
             <td><div id="ln_err"></div></td>
@@ -31,7 +32,7 @@
             <td><label id="mail_label"><b>E-mail</b></label></td></label>
         </tr>
         <tr>
-            <td><input type="text" id="mail_input"></td>
+            <td><input type="text" id="mail_input" name="mail_input"></td>
         </tr>
         <tr>
             <td><div id="mail_err"></div></td>
@@ -40,7 +41,7 @@
             <td><label id="username_label"><b>Username</b></label></td>
         </tr>
         <tr>
-            <td><input type="text" id="username_input"></td>
+            <td><input type="text" id="username_input" name="username_input"></td>
         </tr>
         <tr>
             <td><div id="username_err"></div></td>
@@ -49,14 +50,28 @@
             <td><label id="password_label"><b>Password</b></label></td>
         </tr>
         <tr>
-            <td><input type="text" id="password_input"></td>
+            <td><input type="password" id="password_input" name="password_input"></td>
         </tr>
         <tr>
             <td><div id="password_err"></div></td>
         </tr>
         <tr>
-            <td><button id="reg_btn" onclick="register()">Register</button></td>
+        <tr>
+            <td><label id="passwordconf_label"><b>Confirm password</b></label></td>
+        </tr>
+        <tr>
+            <td><input type="password" id="passwordconf_input"></td>
+        </tr>
+        <tr>
+            <td><div id="passwordconf_err"></div></td>
+        </tr>
+        <tr>
+            <td><button id="reg_btn">Register</button></td>
+        </tr>
+        <tr>
+            <td><label>Already member? Log In <a href="../"><u>here</u></a>.</label></td>
         </tr>
     </table>
+</form> 
 </body>
 </html>

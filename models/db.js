@@ -14,12 +14,6 @@ let db = mysql.createConnection({
     }else{
       console.log('MySQL connected!');
     }
-  });  
-
-  /*var rename = "update Customers set FirstName = 'Boris' where id='1';";
-  db.query(rename, (err)=>{
-    if(err) return(err);
-    else console.log("Successfully done!");
-  });*/
+  });
 
   module.exports = db;
