@@ -11,28 +11,28 @@
 <form action="/register" method="POST" onsubmit="return register();">
     <table>
         <tr>
-            <td><label id="fn_label"><b>First Name</b></label></td></label>
+            <td><label id="fn_label"><b>First name</b></label></td></label>
         </tr>
         <tr>
-            <td><input type="text" id="fn_input" name="fn_input"></td>
+            <td><input placeholder="First name" type="text" id="fn_input" name="fn_input"></td>
         </tr>
         <tr>
             <td><div id="fn_err"></div></td>
         </tr>
         <tr>
-            <td><label id="ln_label"><b>Last Name</b></label></td>
+            <td><label id="ln_label"><b>Last name</b></label></td>
         </tr>
         <tr>
-            <td><input type="text" id="ln_input" name="ln_input"></td>
+            <td><input placeholder="Last name" type="text" id="ln_input" name="ln_input"></td>
         </tr>
         <tr>
             <td><div id="ln_err"></div></td>
         </tr>
         <tr>
-            <td><label id="mail_label"><b>E-mail</b></label></td></label>
+            <td><label id="mail_label"><b>E-mail address</b></label></td></label>
         </tr>
         <tr>
-            <td><input type="text" id="mail_input" name="mail_input"></td>
+            <td><input placeholder="E-mail address" type="text" id="mail_input" name="mail_input"></td>
         </tr>
         <tr>
             <td><div id="mail_err"></div></td>
@@ -41,7 +41,7 @@
             <td><label id="username_label"><b>Username</b></label></td>
         </tr>
         <tr>
-            <td><input type="text" id="username_input" name="username_input"></td>
+            <td><input placeholder="Username (6 to 30 characters)" type="text" id="username_input" name="username_input"></td>
         </tr>
         <tr>
             <td><div id="username_err"></div></td>
@@ -50,7 +50,7 @@
             <td><label id="password_label"><b>Password</b></label></td>
         </tr>
         <tr>
-            <td><input type="password" id="password_input" name="password_input"></td>
+            <td><input placeholder="Password (6 to 30 characters)" type="password" id="password_input" name="password_input"></td>
         </tr>
         <tr>
             <td><div id="password_err"></div></td>
@@ -60,7 +60,7 @@
             <td><label id="passwordconf_label"><b>Confirm password</b></label></td>
         </tr>
         <tr>
-            <td><input type="password" id="passwordconf_input"></td>
+            <td><input placeholder="Confirm password" type="password" id="passwordconf_input"></td>
         </tr>
         <tr>
             <td><div id="passwordconf_err"></div></td>
@@ -71,6 +71,7 @@
         <tr>
             <td><label>Already member? Log In <a href="../"><u>here</u></a>.</label></td>
         </tr>
+        <div name="success"></div>
     </table>
 </form> 
 </body>

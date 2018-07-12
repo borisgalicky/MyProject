@@ -7,3 +7,6 @@ body{
     color: red;
     font-size:13px;
 }
+#fn_input,#ln_input,#mail_input,#username_input,#password_input,#passwordconf_input{
+    width: 180px;
+}
