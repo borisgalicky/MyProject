@@ -14,20 +14,24 @@ exports.register_new_user = (req, res, next)=>{
     let selectUsername = "select username from customers where username=?";
     let insertUser = 'insert into customers(FirstName,LastName,Username,Email,Password,DateOfRegistration) values(?,?,?,?,?,CURRENT_TIMESTAMP())';
 
-    db.query(selectEmail,[email],(err, result)=>{
+    db.query(selectEmail,[email],(err,result)=>{
     if(err) return next(err);
         if(result.length == 0) {
             db.query(selectUsername,[username],(err,rslt)=>{
                 if (err) return next(err);
                 if(rslt.length == 0){
                     db.query(insertUser,[firstname,lastname,username,email,password],(err)=>{
-                        if (err) return next(err);
-                        console.log('USER REGISTERED!');
+                        if(err){
+                            return next(err);
+                        }else{
+                            console.log('USER REGISTERED!');
+                            res.sendFile('./views/registration.html', { root: './' });
+                            res.redirect('/');
+                        }  
                     });
                 }else{
                     console.log('USER ALREADY EXISTS!');
                 }
-                
             });
         }else{
             console.log('USER ALREADY EXISTS!');

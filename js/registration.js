@@ -28,7 +28,6 @@ function register(){
                 for(let i=0;i<6;i++){
                     errors[i].html("");
                 }
-            location.reload();
             }if(password.length<6){
                 password_err.html("Too short password!");
                 passwordconf_err.html("");
