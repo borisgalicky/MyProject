@@ -26,16 +26,19 @@ exports.register_new_user = (req, res, next)=>{
                         }else{
                             console.log('USER REGISTERED!');
                             res.redirect('../login.html');
+                            //res.status(200).send('<p>You have been successfully registered!</p>');
                         }  
                     });
                 }else{
                     console.log('USER ALREADY EXISTS!');
                     res.redirect('../views/registration.html');
+                    //res.status(201).send('<p>User with entered username already exists!</p>');
                 }
             });
         }else{
             console.log('USER ALREADY EXISTS!');
             res.redirect('../views/registration.html');
+            //res.status(201).send('<p>User with entered email already exists!</p>');
         }
     });
 }

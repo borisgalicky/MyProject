@@ -13,7 +13,13 @@ function register(){
     let passwordconf_err = $("#passwordconf_err");
     let inputs = new Array(firstname,lastname,email,username,password,passwordconf);
     let errors = new Array(fn_err,ln_err,email_err,username_err,password_err,passwordconf_err);
-    let empty=0;
+    let empty = 0;
+    let fn_rgx = new RegExp('^[a-zA-ZáäčďéěíľĺňóôřšťůúýžÁÄČĎÉĚÍĽĹŇÓÔŘŠŤŮÚÝŽ]{2,}([ ]{1})?'+
+    '([a-zA-ZáäčďéěíľĺňóôřšťůúýžÁÄČĎÉĚÍĽĹŇÓÔŘŠŤŮÚÝŽ]{2,})?$');
+    let ln_rgx = new RegExp('^[a-zA-ZáäčďéěíľĺňóôřšťůúýžÁÄČĎÉĚÍĽĹŇÓÔŘŠŤŮÚÝŽ]{2,}([ -]{1})?'+
+    '([a-zA-ZáäčďéěíľĺňóôřšťůúýžÁÄČĎÉĚÍĽĹŇÓÔŘŠŤŮÚÝŽ]{2,})?$');
+    let em_rgx = new RegExp('^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(('+
+    '\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
     //zisťovanie počtu prázdnch inputov
     for(let i=0;i<6;i++){
         if(inputs[i] == ''){
@@ -22,28 +28,31 @@ function register(){
             empty+=0;
         }
     }if(empty==0){
-        if(password == passwordconf){
-            if((password.length>5) && (password.length<31)){
-                //vynulovanie všetkých error hlášok
-                for(let i=0;i<6;i++){
-                    errors[i].html("");
-                }
-            }if(password.length<6){
-                password_err.html("Too short password!");
-                passwordconf_err.html("");
+        let fn_res = firstname.match(fn_rgx);
+        let ln_res = lastname.match(ln_rgx);
+        let em_res = email.match(em_rgx);
+        if(firstname.length>0){
+            if(fn_res==null){
+                fn_err.html('Invalid first name!');
+                console.log('First name wrong!');
                 return false;
-            }if(password.length>30){
-                password_err.html("Too long password!");
-                passwordconf_err.html("");
+                
+            }else{
+                fn_err.html('');
+                console.log('First name OK');
                 return false;
             }
-        }else{
-            //vynulovanie všetkých error hlášok okrem hlášky pri confirm password
-            for(let i=0;i<5;i++){
-                errors[i].html("");
+        }
+        if(lastname.length>0){
+            if(ln_res==null){
+                ln_err.html('Invalid last name!');
+                console.log('Last name wrong!');
+                return false;
+            }else{
+                ln_err.html('');
+                console.log('Last name OK');
+                return false;
             }
-            passwordconf_err.html("Passwords are not matching!");
-            return false;
         }
     }
     //vypísanie error hlášok ku prázdnym inputom
@@ -55,6 +64,6 @@ function register(){
                 errors[i].html("");
             }
         }
-        return false;
+        return false; //stopne odosielanie formulára
     }
 }
