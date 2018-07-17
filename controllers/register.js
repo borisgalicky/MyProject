@@ -25,16 +25,17 @@ exports.register_new_user = (req, res, next)=>{
                             return next(err);
                         }else{
                             console.log('USER REGISTERED!');
-                            res.sendFile('./views/registration.html', { root: './' });
-                            res.redirect('/');
+                            res.redirect('../login.html');
                         }  
                     });
                 }else{
                     console.log('USER ALREADY EXISTS!');
+                    res.redirect('../views/registration.html');
                 }
             });
         }else{
             console.log('USER ALREADY EXISTS!');
+            res.redirect('../views/registration.html');
         }
     });
 }
