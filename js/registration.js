@@ -31,28 +31,53 @@ function register(){
         let fn_res = firstname.match(fn_rgx);
         let ln_res = lastname.match(ln_rgx);
         let em_res = email.match(em_rgx);
-        for(let i=0;i<6;i++){
-            if(i==1){
+        passwordconf_err.html('');
+        for(let i=0;i<5;i++){
+            switch(i){
+                case 1:
                 if(fn_res==null){
                     fn_err.html('Invalid first name!');
                 }else{
                     fn_err.html('');
                 }
-            }if(i==2){
+                case 2:
                 if(ln_res==null){
                     ln_err.html('Invalid last name!');
                 }else{
                     ln_err.html('');
                 }
-            }if(i==3){
+                case 3:
                 if(em_res==null){
                     email_err.html('Invalid e-mail!');
                 }else{
                     email_err.html('');
-                } 
-            }
-        }return false;
-
+                }
+                case 4:
+                if((username.length>5)&&(username.length<31)){
+                    username_err.html('');
+                }if(username.length<6){
+                    username_err.html('Too short username!');
+                }if(username.length>30){
+                    username_err.html('Too long username!');
+                }
+                case 5:
+                if((password.length>5)&&(password.length<31)){
+                    if(password==passwordconf){
+                        password_err.html('');
+                        passwordconf_err.html('');
+                    }else{
+                        password_err.html('');
+                        passwordconf_err.html('Passwords are not matching!');
+                    }
+                }if(password.length<6){
+                    password_err.html('Too short password!');
+                    passwordconf_err.html('');
+                }if(password.length>30){
+                    password_err.html('Too long password!');
+                    passwordconf_err.html('');
+                }
+            }   
+        }
     }
     //vypísanie error hlášok ku prázdnym inputom
     else{
@@ -63,6 +88,6 @@ function register(){
                 errors[i].html("");
             }
         }
-        return false; //stopne odosielanie formulára
+        return false; //stopne odosielanie formulára s prázdnymi inputmi
     }
 }
