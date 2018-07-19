@@ -1,44 +1,44 @@
-let db = require('../models/db');
-let express = require ("express");
-let app = express();
+var db = require('../models/db');
+var express = require("express");
+var app = express();
 
-exports.register_new_user = (req, res, next)=>{
-    let firstname = req.body.fn_input;
-    let lastname = req.body.ln_input;
-    let username = req.body.username_input;
-    let email = req.body.mail_input;
-    let password = req.body.password_input;
+exports.register_new_user = (req, res, next) => {
+    var firstname = req.body.fn_input;
+    var lastname = req.body.ln_input;
+    var username = req.body.username_input;
+    var email = req.body.mail_input;
+    var password = req.body.password_input;
     console.log(req.body);
 
-    let selectEmail = "select email from customers where email=?";
-    let selectUsername = "select username from customers where username=?";
-    let insertUser = 'insert into customers(FirstName,LastName,Username,Email,Password,DateOfRegistration) values(?,?,?,?,?,CURRENT_TIMESTAMP())';
+    var selectEmail = "select email from customers where email=?";
+    var selectUsername = "select username from customers where username=?";
+    var insertUser = 'insert into customers(FirstName,LastName,Username,Email,Password,DateOfRegistration) values(?,?,?,?,?,CURRENT_TIMESTAMP())';
 
-    db.query(selectEmail,[email],(err,result)=>{
-    if(err) return next(err);
-        if(result.length == 0) {
-            db.query(selectUsername,[username],(err,rslt)=>{
+    db.query(selectEmail, [email], (err, result) => {
+        if (err) return next(err);
+        if (result.length == 0) {
+            db.query(selectUsername, [username], (err, rslt) => {
                 if (err) return next(err);
-                if(rslt.length == 0){
-                    db.query(insertUser,[firstname,lastname,username,email,password],(err)=>{
-                        if(err){
+                if (rslt.length == 0) {
+                    db.query(insertUser, [firstname, lastname, username, email, password], (err) => {
+                        if (err) {
                             return next(err);
-                        }else{
+                        } else {
                             console.log('USER REGISTERED!');
                             res.redirect('../login.html');
-                            //res.status(200).send('<p>You have been successfully registered!</p>');
-                        }  
+                            //res.write('<p>Successfully registered!</p>');
+                        }
                     });
-                }else{
+                } else {
                     console.log('USER ALREADY EXISTS!');
                     res.redirect('../views/registration.html');
-                    //res.status(201).send('<p>User with entered username already exists!</p>');
+                    //res.write('<p>User with entered username already exists!</p>');
                 }
             });
-        }else{
+        } else {
             console.log('USER ALREADY EXISTS!');
             res.redirect('../views/registration.html');
-            //res.status(201).send('<p>User with entered email already exists!</p>');
+            //res.write('<p>User with entered email already exists!</p>');
         }
     });
 }

@@ -1,19 +1,19 @@
-let db = require("./models/db");
-let express = require("express");
-let bodyParser = require("body-parser");
+var db = require("./models/db");
+var express = require("express");
+var bodyParser = require("body-parser");
 
-let port = 5000;
-let app = express();
-let path = require('path');
+var port = 5000;
+var app = express();
+var path = require('path');
 
-app.get("/",(req,res) =>{
+app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '.', 'login.html'));
 });
-let register = require('./routes/register');
+var register = require('./routes/register');
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/register', register);
 app.use(express.static('./'));
 app.listen(port);
