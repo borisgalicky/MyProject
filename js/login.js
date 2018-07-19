@@ -3,14 +3,14 @@ function login() {
     var password = $("#pssw_input").val();
     var usrn_err = $("#usrn_err");
     var pssw_err = $("#pssw_err");
+    var errors = 0;
 
     if ((username != '') && (password != '')) {
-        //console.log("allright");
         usrn_err.html("");
         pssw_err.html("");
     } else {
+        errors++;
         if ((username == '') && (password != '')) {
-            //console.log("no pass");
             usrn_err.html("Enter username!");
             pssw_err.html("");
         } if ((username != '') && (password == '')) {
@@ -20,5 +20,8 @@ function login() {
             usrn_err.html("Enter username!");
             pssw_err.html("Enter password!");
         }
+    }
+    if (errors > 0) {
+        return false;
     }
 }
