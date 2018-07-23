@@ -22,6 +22,7 @@ exports.login_user = (req, res, next) => {
                     if ((db_username == username) && (db_password == password)) {
                         console.log("Everything's allright!");
                         res.redirect('../views/main.html');
+                        console.log(db_username, db_password);
                     }
                 }
             });
