@@ -31,13 +31,13 @@ exports.register_new_user = (req, res, next) => {
                     });
                 } else {
                     console.log('USER ALREADY EXISTS!');
-                    res.redirect('../views/registration.html');
+                    res.redirect('../registration.html');
                     //res.write('<p>User with entered username already exists!</p>');
                 }
             });
         } else {
             console.log('USER ALREADY EXISTS!');
-            res.redirect('../views/registration.html');
+            res.redirect('../registration.html');
             //res.write('<p>User with entered email already exists!</p>');
         }
     });

@@ -9,6 +9,12 @@ var path = require('path');
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '.', 'login.html'));
 });
+
+app.post("/views", (req, res) => {
+    res.json({
+        message: 'This directory will be protected!'
+    });
+});
 var register = require('./routes/register');
 var login = require('./routes/login');
 

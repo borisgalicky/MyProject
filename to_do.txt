@@ -1,0 +1,6 @@
+JWT (Json webtoken) know-how
+https://www.youtube.com/watch?v=7nafaH9SddU
+
+Full API authentication in node.js is explained here.
+
+install nodemon
