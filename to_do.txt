@@ -1,6 +1,8 @@
 JWT (Json webtoken) know-how
 https://www.youtube.com/watch?v=7nafaH9SddU
 
-Full API authentication in node.js is explained here.
+Full JWT authentication in node.js is explained here.
 
 install nodemon
+keyup on inputs
+messages: registered/not registered/user not found/invalid password

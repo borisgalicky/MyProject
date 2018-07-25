@@ -1,4 +1,5 @@
 var db = require('../models/db');
+var ph = require('password-hash');
 
 exports.register_new_user = (req, res, next) => {
     var firstname = req.body.fn_input;
@@ -18,7 +19,8 @@ exports.register_new_user = (req, res, next) => {
             db.query(selectUsername, [username], (err, rslt) => {
                 if (err) return next(err);
                 if (rslt.length == 0) {
-                    db.query(insertUser, [firstname, lastname, username, email, password], (err) => {
+                    var hashedPassword = ph.generate(password);
+                    db.query(insertUser, [firstname, lastname, username, email, hashedPassword], (err) => {
                         if (err) {
                             return next(err);
                         } else {
