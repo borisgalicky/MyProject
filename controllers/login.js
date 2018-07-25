@@ -1,5 +1,6 @@
 var db = require('../models/db');
 var express = require("express");
+var app = express();
 var jwt = require("jsonwebtoken");
 var ph = require('password-hash');
 
@@ -28,14 +29,6 @@ exports.login_user = (req, res, next) => {
                             res.redirect('../login.html');
                         } if (hashedResult == true) {
                             console.log("Everything's allright!");
-                            /*const user = {
-                                username: result[0].username
-                            };
-                            jwt.sign({ user }, "secret", (err, token) => {
-                                res.json({
-                                    token
-                                });
-                            });*/
                             res.redirect('../views/main.html');
                         }
                     }

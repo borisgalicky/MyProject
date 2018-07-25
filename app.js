@@ -2,6 +2,7 @@ require('dotenv').config();
 var db = require("./models/db");
 var express = require("express");
 var bodyParser = require("body-parser");
+var jwt = require('jsonwebtoken');
 
 var port = 5000;
 var app = express();
