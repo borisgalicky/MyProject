@@ -1,6 +1,4 @@
 var db = require('../models/db');
-var express = require("express");
-var app = express();
 
 exports.register_new_user = (req, res, next) => {
     var firstname = req.body.fn_input;
@@ -26,19 +24,19 @@ exports.register_new_user = (req, res, next) => {
                         } else {
                             console.log('USER REGISTERED!');
                             res.redirect('../login.html');
-                            //res.write('<p>Successfully registered!</p>');
+                            // res.write('<p>Successfully registered!</p>');
                         }
                     });
                 } else {
                     console.log('USER ALREADY EXISTS!');
                     res.redirect('../registration.html');
-                    //res.write('<p>User with entered username already exists!</p>');
+                    // res.write('<p>User with entered username already exists!</p>');
                 }
             });
         } else {
             console.log('USER ALREADY EXISTS!');
             res.redirect('../registration.html');
-            //res.write('<p>User with entered email already exists!</p>');
+            // res.write('<p>User with entered email already exists!</p>');
         }
     });
 }

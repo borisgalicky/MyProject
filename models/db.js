@@ -1,19 +1,19 @@
 let mysql = require('mysql');
 
 let db = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "root",
-    password: "",
-    database: "myproject"
-  });
+  host: process.env.host,
+  user: process.env.user,
+  password: process.env.password,
+  database: process.env.database
+});
 
-  db.connect((err) => {
-    if (err){
-      throw err;
-      console.log("There was a problem with MySQL!");
-    }else{
-      console.log('MySQL connected!');
-    }
-  });
+db.connect((err) => {
+  if (err) {
+    console.log("There was a problem with MySQL!");
+    throw err;
+  } else {
+    console.log('MySQL connected!');
+  }
+});
 
-  module.exports = db;
+module.exports = db;
