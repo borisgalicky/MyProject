@@ -1,9 +1,55 @@
 body{
     font-family: Arial;
+    background-color: #e8e8e8;
 }
+
+#login_title{
+    color: #403866;
+    text-align: center;
+}
+
 #usrn_err,#pssw_err{
-    height: 13px;
-    width: 100px;
     color: red;
-    font-size:13px;
+    padding-left: 5px;
+    width: 200px;
+    height: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+#form{
+    margin: 150px auto;
+    border-radius: 12px;
+}
+
+#lgn_btn{
+    background-color: #827FFE;
+    color: white;
+    border-radius: 15px;
+    width: 110px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#lgn_btn:focus{
+    outline: none;
+}
+
+#usrn_input, #pssw_input{
+    margin-top: 10px;
+    height: 35px;
+    width: 300px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#usrn_label, #pssw_label{
+    font-size: 20px;
+    padding-left: 5px;
 }

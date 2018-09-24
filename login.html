@@ -12,14 +12,18 @@
 
 <body>
     <form action="/login" method="POST" onsubmit="return login();">
-        <table>
+        <table id="form">
+            <tr>
+                <td>
+                    <h1 id="login_title">LOG IN</h1>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <label id="usrn_label">
                         <b>Username</b>
                     </label>
                 </td>
-                </label>
             </tr>
             <tr>
                 <td>
@@ -55,13 +59,15 @@
             </tr>
             <tr>
                 <td>
-                    <label>Not a member? Register
-                        <a href="./registration.html">
-                            <u>here</u>
-                        </a>.</label>
+                    <label><br><label style="padding-left: 5px">Not a member? Register</label>
+                        <a style="text-decoration: none" href="./registration.html">
+                            <b>here.</b>
+                        </a>
+                    </label>
                 </td>
             </tr>
         </table>
+    </div>
     </form>
 </body>
 

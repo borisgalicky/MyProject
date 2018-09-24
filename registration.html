@@ -12,7 +12,12 @@
 
 <body>
     <form action="/register" method="POST" onsubmit="return register();">
-        <table>
+        <table id="form">
+            <tr>
+                <td>
+                    <h1 id="reg_title">REGISTER</h1>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <label id="fn_label">
@@ -125,10 +130,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <label>Already member? Log In
-                            <a href="login.html">
-                                <u>here</u>
-                            </a>.</label>
+                        <label><br><label style="padding-left: 5px">Already member? Log In</label>
+                            <a style="text-decoration: none" href="login.html">
+                                <b>here</b>
+                            </a>
+                        </label>
                     </td>
                 </tr>
                 <div id="success" name="success"></div>

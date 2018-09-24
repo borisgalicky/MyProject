@@ -1,12 +1,55 @@
 body{
     font-family: Arial;
+    background-color: #e8e8e8;
 }
+
+#reg_title{
+    color: #403866;
+    text-align: center;
+}
+
+#form{
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
 #fn_err,#ln_err,#mail_err,#username_err,#password_err,#passwordconf_err{
-    height: 13px;
-    width: 170px;
     color: red;
-    font-size:13px;
+    padding-left: 5px;
+    width: 200px;
+    height: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
 }
+
 #fn_input,#ln_input,#mail_input,#username_input,#password_input,#passwordconf_input{
-    width: 180px;
+    margin-top: 10px;
+    height: 35px;
+    width: 300px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#fn_label,#ln_label,#mail_label,#username_label,#password_label,#passwordconf_label{
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+#reg_btn{
+    background-color: #827FFE;
+    color: white;
+    border-radius: 15px;
+    width: 110px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#reg_btn:focus{
+    outline: none;
 }
