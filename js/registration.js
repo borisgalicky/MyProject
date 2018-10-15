@@ -57,7 +57,7 @@ function register() {
                     errors++;
                 } else {
                     if (em_res == null) {
-                        email_err.html('Invalid e-mail!');
+                        email_err.html('Enter valid e-mail!');
                         errors++;
                     } else {
                         email_err.html('');

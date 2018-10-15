@@ -7,6 +7,7 @@ var ph = require('password-hash');
 exports.login_user = (req, res, next) => {
     var username = req.body.usrn_input;
     var password = req.body.pssw_input;
+    console.log(req.body);
 
     var selectUsername = "select username from customers where username=?";
     var selectPassword = "select password from customers where username=?";
@@ -18,6 +19,7 @@ exports.login_user = (req, res, next) => {
             res.redirect('../login.html');
         } else {
             if (result[0].username == username) {
+                console.log(result);
                 db.query(selectPassword, [username], (err, rslt) => {
                     var db_password = rslt[0].password;
                     var hashedResult = ph.verify(password, db_password);
